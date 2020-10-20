@@ -2,4 +2,5 @@
 
 S3method(AIC,list)
 export(check_assumptions)
+export(check_nonlinear)
 export(theme_nres)

@@ -1,5 +1,3 @@
-if(getRversion() >= "2.15.1")  
-  
 #' Plot model parameters against residuals of a fitted model
 #'
 #'
@@ -21,6 +19,10 @@ check_nonlinear <- function(x,...){
   
   # Get model data. 
   x_dat <- model.frame(x)
+  
+  # Find and remove the response variable
+  response <- attr(terms(x), "response")
+  x_dat <- x_dat[,-response, drop = FALSE]
   
   # Get model residuals. 
   x_dat$residuals <- residuals(x, type = "pearson")
