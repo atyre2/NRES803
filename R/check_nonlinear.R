@@ -16,7 +16,7 @@
 #' lm3 <- lm(Sepal.Width ~ Petal.Length*Petal.Width*Species, data = iris)
 #' check_nonlinear(lm3) # fixes the problems with lm1 and lm2
 
-check_nonlinear <- function(x,...){
+check_nonlinear <- function(x, ...){
   
   # Plotting aesthetics.
   my_theme <- ggplot2::theme_bw() +

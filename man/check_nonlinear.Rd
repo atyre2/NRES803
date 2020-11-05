@@ -19,5 +19,10 @@ Plot model parameters against residuals of a fitted model
 }
 \examples{
 lm1 <- lm(Sepal.Width ~ Petal.Length, data = iris)
-check_nonlinear(lm1)
+check_nonlinear(lm1) # some indication of issues
+lm2 <- lm(Sepal.Width ~ Petal.Length*Petal.Width, data = iris)
+check_nonlinear(lm2)
+# Also works with categorical variables.
+lm3 <- lm(Sepal.Width ~ Petal.Length*Petal.Width*Species, data = iris)
+check_nonlinear(lm3) # fixes the problems with lm1 and lm2
 }
