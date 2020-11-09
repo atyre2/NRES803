@@ -14,9 +14,9 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c(".fitted", ".resid", ".s
 #' lm1 <- lm(Sepal.Width ~ Petal.Length, data = iris)
 #' check_assumptions(lm1)
 check_assumptions <- function(x, ...){
-  if (inherits(x,"gam")){
-    stop("check_assumptions doesn't work with gam() objects")
-  }
+  # if (inherits(x,"gam")){
+  #   stop("check_assumptions doesn't work with gam() objects")
+  # }
 
   my_theme <- ggplot2::theme_classic() +
     ggplot2::theme(text=ggplot2::element_text(size=ggplot2::rel(4)))
