@@ -35,7 +35,7 @@ augment_gam <- function(x){
 #'
 #' @examples
 #' x <- mgcv::gam(Sepal.Width ~ s(Petal.Length), data = iris)
-#' augment_gam(x)
+#' augment.other(x)
 #'
 augment.other <- function(model){
   r <- model.frame(model)
