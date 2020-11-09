@@ -25,3 +25,24 @@ augment_gam <- function(x){
    return(aug)
   
 }  
+
+#' An alternative augment approach
+#'
+#' @param model 
+#'
+#' @return a dataframe with the input data, fitted values, and regression diagnostics
+#' @export
+#'
+#' @examples
+#' x <- mgcv::gam(Sepal.Width ~ s(Petal.Length), data = iris)
+#' augment_gam(x)
+#'
+augment.other <- function(model){
+  r <- model.frame(model)
+  r$.fitted <- fitted(model)
+  r$.resid <- resid(model)
+  r$.std.resid <- residuals(model, type = "scaled.pearson")
+  r$.hat <- model$hat
+  r$.cooksd <- cooks.distance(model)
+  return(r)
+}
