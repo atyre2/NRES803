@@ -2,7 +2,7 @@
 % Please edit documentation in R/augment_gam.R
 \name{augment.gam}
 \alias{augment.gam}
-\title{An alternative augment approach}
+\title{Augment a gam model with regression diagnostic information}
 \usage{
 \method{augment}{gam}(model)
 }
@@ -13,7 +13,7 @@
 a dataframe with the input data, fitted values, and regression diagnostics
 }
 \description{
-An alternative augment approach
+Augment a gam model with regression diagnostic information
 }
 \examples{
 x <- mgcv::gam(Sepal.Width ~ s(Petal.Length), data = iris)
