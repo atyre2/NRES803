@@ -3,6 +3,7 @@
 S3method(AIC,list)
 S3method(augment,gam)
 export(check_assumptions)
-export(check_gam)
 export(check_nonlinear)
 export(theme_nres)
+importFrom(broom,augment)
+importFrom(stats,AIC)
