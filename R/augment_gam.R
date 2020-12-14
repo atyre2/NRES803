@@ -4,6 +4,7 @@
 #'
 #' @return a dataframe with the input data, fitted values, and regression diagnostics
 #' @export
+#' @importFrom mgcv residuals.gam 
 #'
 #' @examples
 #' x <- mgcv::gam(Sepal.Width ~ s(Petal.Length), data = iris)
@@ -16,10 +17,10 @@
 augment.gam <- function(model){
   r <- model.frame(model)
   r$.fitted <- fitted(model)
-  r$.resid <- resid(model)
-  r$.std.resid <- residuals(model, type = "pearson")
+  r$.resid <- mgcv:::residuals.gam(model)
+  r$.std.resid <- mgcv:::residuals.gam(model, type = "pearson")
   if(family(model)$family %in% c("binomial", "poisson", "gamma")) {
-    r$.rq.resid <- statmod::qres(model)
+    r$.rq.resid <- statmod::qresiduals(model)
   }
   r$.hat <- model$hat
   r$.cooksd <- cooks.distance(model)

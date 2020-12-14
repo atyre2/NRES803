@@ -21,7 +21,10 @@ Imports:
     gridExtra,
     MASS,
     graphics,
-    stats
+    stats,
+    ggpubr
 Depends: 
     R (>= 2.10),
     broom
+Suggests: 
+    testthat

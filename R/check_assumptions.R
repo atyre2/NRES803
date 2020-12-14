@@ -57,6 +57,6 @@ check_assumptions <- function(x, ...){
     my_theme + 
     ggplot2::labs(x = "Leverage (Hat-matrix)", y = "Standardised residuals")
 
-  graphics::plot(gridExtra::arrangeGrob(rr0, rr1, rr2, rr3, nrow=2))
+  ggpubr::ggarrange(rr0, rr1, rr2, rr3, nrow=2)
 
 }
