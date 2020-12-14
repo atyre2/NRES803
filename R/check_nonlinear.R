@@ -24,10 +24,10 @@ check_nonlinear <- function(x, ...){
                    axis.text = ggplot2::element_text(color = "black"))
   
   # Get model data. 
-  x_dat <- model.frame(x)
+  x_dat <- stats::model.frame(x)
   
   # Find the response variable. 
-  response <- attr(terms(x), "response")
+  response <- attr(stats::terms(x), "response")
   
   # Drop it from data frame. 
   x_dat <- x_dat[,-response, drop = FALSE]
@@ -36,7 +36,7 @@ check_nonlinear <- function(x, ...){
   x_dat_class <- sapply(x_dat, class)
   
   # Get model residuals. 
-  x_dat$residuals <- residuals(x, type = "pearson")
+  x_dat$residuals <- stats::residuals(x, type = "pearson")
   
   # Get variables names. 
   x_dat_names <- names(x_dat)

@@ -1,17 +1,16 @@
-x <- mgcv::gam(Sepal.Width ~ s(Petal.Length), data = iris)
-#saveRDS(augment(x), "tests/testthat/test-augment-x.RDS")
-expected_x <- readRDS(here::here("tests/testthat/test-augment-x.RDS"))
-dat <- mgcv::gamSim(1,n=400,dist="binary",scale=.33)
-lr.fit <- mgcv::gam(y~s(x0)+s(x1)+s(x2)+s(x3),family=binomial,
-               data=dat,method="REML")
-#saveRDS(augment(lr.fit), "tests/testthat/test-augment-lr.fit.RDS")
-expected_lr.fit <- readRDS(here::here("tests/testthat/test-augment-lr.fit.RDS"))
-
-
-
-
-testthat::test_that("augment.gam works as expected",{
-  expect_identical(augment(x), expected_x)
+testthat::test_that("augment.gam works as expected with gaussian models",{
+  x <- mgcv::gam(Sepal.Width ~ s(Petal.Length), data = iris)
+  expect_snapshot_value(augment(x), style = "serialize")
   expect_length(augment(x), 7)
   expect_s3_class(augment(x), "data.frame")
+})
+
+testthat::test_that("augment.gam works as expected with binomial models",{
+  set.seed(2928457)
+  dat <- mgcv::gamSim(1,n=100,dist="binary",scale=.33,verbose = FALSE)
+  lr.fit <- mgcv::gam(y~s(x0)+s(x1)+s(x2)+s(x3),family=binomial,
+                      data=dat,method="REML")
+  expect_snapshot_value(augment(lr.fit), style = "serialize")
+  expect_length(augment(lr.fit), 11)
+  expect_s3_class(augment(lr.fit), "data.frame")
 })

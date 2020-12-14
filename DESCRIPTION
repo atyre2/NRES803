@@ -1,7 +1,7 @@
 Package: NRES803
 Type: Package
 Title: Functions for NRES 803 Ecological Statistics
-Version: 0.4.0.9001
+Version: 0.4.0.9002
 Authors@R: c(person("Drew", "Tyre", email = "atyre2@unl.edu", role = "cre"),
              person("David", "Nguyen", email = "david.nguyen@huskers.unl.edu", role = "ctb"),
              person("Sergio", "Gabriel", email="gaps@huskers.unl.edu", role="ctb"),
@@ -32,3 +32,4 @@ Depends:
     broom
 Suggests: 
     testthat
+Config/testthat/edition: 3

@@ -14,14 +14,14 @@
 #'               data=dat,method="REML")
 #'
 augment.gam <- function(model){
-  r <- model.frame(model)
-  r$.fitted <- fitted(model)
+  r <- stats::model.frame(model)
+  r$.fitted <- stats::fitted(model)
   r$.resid <- mgcv::residuals.gam(model)
   r$.std.resid <- mgcv::residuals.gam(model, type = "pearson")
-  if(family(model)$family %in% c("binomial", "poisson", "gamma")) {
+  if(stats::family(model)$family %in% c("binomial", "poisson", "gamma")) {
     r$.rq.resid <- statmod::qresiduals(model)
   }
   r$.hat <- model$hat
-  r$.cooksd <- cooks.distance(model)
+  r$.cooksd <- stats::cooks.distance(model)
   return(r)
 }
