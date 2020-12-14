@@ -7,7 +7,7 @@
 \method{augment}{gam}(model)
 }
 \arguments{
-\item{model}{}
+\item{model}{fitted model object from mgcv::gam()}
 }
 \value{
 a dataframe with the input data, fitted values, and regression diagnostics

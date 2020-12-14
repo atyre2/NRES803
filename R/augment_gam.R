@@ -1,6 +1,6 @@
 #' Augment a gam model with regression diagnostic information
 #'
-#' @param model 
+#' @param model fitted model object from mgcv::gam()
 #'
 #' @return a dataframe with the input data, fitted values, and regression diagnostics
 #' @export
