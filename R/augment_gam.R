@@ -16,8 +16,8 @@
 augment.gam <- function(model){
   r <- model.frame(model)
   r$.fitted <- fitted(model)
-  r$.resid <- mgcv:::residuals.gam(model)
-  r$.std.resid <- mgcv:::residuals.gam(model, type = "pearson")
+  r$.resid <- mgcv::residuals.gam(model)
+  r$.std.resid <- mgcv::residuals.gam(model, type = "pearson")
   if(family(model)$family %in% c("binomial", "poisson", "gamma")) {
     r$.rq.resid <- statmod::qresiduals(model)
   }

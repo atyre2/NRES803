@@ -13,7 +13,7 @@ AIC.list <- function (object, ..., k = 2)
 {
   ll <- if (isNamespaceLoaded("stats4"))
     stats4::logLik
-  else logLik
+  else stats::logLik
   if (!missing(...)) {
     warning("... not empty, only first argument used.")
   }

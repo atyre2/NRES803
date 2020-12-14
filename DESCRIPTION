@@ -23,7 +23,10 @@ Imports:
     graphics,
     stats,
     ggpubr,
-    mgcv
+    mgcv,
+    statmod,
+    stats4,
+    here
 Depends: 
     R (>= 3.5.0),
     broom
