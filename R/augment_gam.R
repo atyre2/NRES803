@@ -4,7 +4,6 @@
 #'
 #' @return a dataframe with the input data, fitted values, and regression diagnostics
 #' @export
-#' @importFrom mgcv residuals.gam 
 #'
 #' @examples
 #' x <- mgcv::gam(Sepal.Width ~ s(Petal.Length), data = iris)
